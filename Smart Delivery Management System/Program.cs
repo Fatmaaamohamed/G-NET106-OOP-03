@@ -51,6 +51,98 @@
 
             #endregion
 
+            #region Question09
+            Driver driver = new Driver { DriverName = "Ahmed Mohamed" };
+
+
+            DeliveryCenter center = new DeliveryCenter("Main Delivery Center");
+
+            center.AssignedDriver = driver;
+
+            Console.WriteLine("===================================");
+            Console.WriteLine($"Delivery Center: {center.CenterName}");
+            Console.WriteLine("===================================");
+            Console.WriteLine($"Driver : {center.AssignedDriver?.DriverName}");
+            Console.WriteLine();
+
+            StandardShipment standard = new StandardShipment(
+                "SH001",
+                "Laptop",
+                3m,
+                70m,
+                new DeliveryAddress { City = "Cairo" }
+            );
+
+            ExpressShipment express = new ExpressShipment(
+                "SH002",
+                "Mobile Phone",
+                2m,
+                60m,
+                new DeliveryAddress { City = "Giza" },
+                30m
+            );
+
+            InternationalShipment international = new InternationalShipment(
+                "SH003",
+                "Television",
+                3m,
+                120m,
+                new DeliveryAddress { City = "Berlin" },
+                "Germany",
+                100m
+            );
+
+
+            center.AddShipment(standard);
+            center.AddShipment(express);
+            center.AddShipment(international);
+
+            center.PrintAllShipments();
+            Console.WriteLine();
+
+
+            Console.WriteLine("Printing Using DeliveryHelper...");
+            Console.WriteLine("-----------------------------------");
+            DeliveryHelper.PrintShipmentDetails(standard);
+            Console.WriteLine("Standard Shipment Printed Successfully.\n");
+
+            DeliveryHelper.PrintShipmentDetails(express);
+            Console.WriteLine("Express Shipment Printed Successfully.\n");
+
+            DeliveryHelper.PrintShipmentDetails(international);
+            Console.WriteLine("International Shipment Printed Successfully.");
+            Console.WriteLine("===================================\n");
+
+            Console.WriteLine("Updating Weight...");
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine($"Original Weight : {standard.Weight} KG");
+
+            standard.UpdateWeight(5m);
+            Console.WriteLine($"Updated Weight : {standard.Weight} KG");
+
+            standard.UpdateWeight(5m, 0.5m);
+            Console.WriteLine($"Updated Weight After Packing : {standard.Weight} KG");
+            Console.WriteLine("===================================\n");
+
+          
+            Console.WriteLine("Printing Using Shipment[]...");
+            Console.WriteLine("-----------------------------------");
+            Shipment[] mixedShipments = new Shipment[] { standard, express, international };
+
+            foreach (Shipment s in mixedShipments)
+            {
+                if (s is StandardShipment)
+                    Console.WriteLine("Standard Shipment...");
+                else if (s is ExpressShipment)
+                    Console.WriteLine("Express Shipment...");
+                else if (s is InternationalShipment)
+                    Console.WriteLine("International Shipment...");
+
+                s.PrintShipment();
+                Console.WriteLine();
+            }
         }
+
+            #endregion
     }
 }

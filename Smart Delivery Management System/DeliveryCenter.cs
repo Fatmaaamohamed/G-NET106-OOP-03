@@ -10,6 +10,7 @@ namespace Smart_Delivery_Management_System
 
         public string CenterName { get; set; }
 
+        public Driver AssignedDriver { get; set; }
 
         public DeliveryCenter(string centerName = "Main Delivery Center ")
         {
