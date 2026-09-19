@@ -43,8 +43,16 @@ namespace Smart_Delivery_Management_System
 
         }
 
+        #region Question03
 
-      
+        public override decimal EstimatedCost
+        {
+            get => base.EstimatedCost + CustomsFee;
+
+        }
+
+        #endregion
+
 
         #region Question02
         public InternationalShipment(string trackingCode, string description, decimal weight, decimal deliveryFee, DeliveryAddress destination, string destinationCountry, decimal customsFee) :

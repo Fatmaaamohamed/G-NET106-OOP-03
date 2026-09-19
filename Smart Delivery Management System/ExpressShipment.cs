@@ -24,8 +24,17 @@ namespace Smart_Delivery_Management_System
             }
         }
 
+
         #region Question02
-        
+        public override decimal EstimatedCost
+        {
+            get => base.EstimatedCost + ExtraFee;
+        }
+
+        #endregion
+
+        #region Question02
+
 
 
         public ExpressShipment(string trackingCode, string description, decimal weight, decimal deliveryFee, DeliveryAddress destination, decimal extraFee) :
