@@ -20,11 +20,18 @@ namespace Smart_Delivery_Management_System
         }
 
 
-        
+
 
         #endregion
-    
 
+        #region Question04
 
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Standard Shipment\n");
+            base.PrintShipment();
+        }
+
+        #endregion
     }
 }
