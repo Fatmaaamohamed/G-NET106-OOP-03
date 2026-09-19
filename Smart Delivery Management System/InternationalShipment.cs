@@ -79,5 +79,14 @@ namespace Smart_Delivery_Management_System
         }
 
         #endregion
+
+
+        #region Question08
+        public virtual void GenerateCustomsReport()
+        {
+            Console.WriteLine($"Customs Report for {DestinationCountry}: Fee = {CustomsFee} EGP");
+        }
+
+        #endregion
     }
 }
