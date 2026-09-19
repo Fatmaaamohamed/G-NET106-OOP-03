@@ -27,7 +27,27 @@
             #endregion
 
 
+            #region Question02
 
+            /*
+             a) The sealed keyword prevents other classes from inheriting from it. It locks the entire class definition,
+                ensuring that its behavior cannot be modified or extended through subclassing.
+
+
+             b) Sealed Class: Prevents inheritance entirely. No class can derive from a sealed class.
+              
+                Sealed Method: Prevents further overriding of a specific method down the inheritance chain while still allowing the class itself to be inherited.
+                It must always be combined with the override keyword (public sealed override void Method()) in a derived class.
+             
+
+             c) No,Because applying sealed override to a method locks its behavior at that point in the inheritance hierarchy.
+             
+             
+             */
+
+
+
+            #endregion
 
             #endregion
 
